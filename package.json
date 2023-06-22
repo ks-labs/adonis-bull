@@ -1,6 +1,6 @@
 {
   "name": "@ks-labs/adonis-bull",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "main": "src/Queue.js",
   "license": "MIT",
   "scripts": {
@@ -78,7 +78,6 @@
     "adonis-bull",
     "adonis-queue"
   ],
-
   "devDependencies": {
     "@adonisjs/ace": "^5.0.8",
     "@adonisjs/fold": "^4.0.9",
