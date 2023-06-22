@@ -6,12 +6,10 @@ name: Node.js Package
 on:
   release:
     types: [created]
-  workflow_run:
-    workflows: ["Publish new release on production branch"]
+  workflow_dispatch:
 
 jobs:
   publish-gpr:
-    needs: run-test
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -24,4 +22,4 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{secrets.PUBLISH_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
