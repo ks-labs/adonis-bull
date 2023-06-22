@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="0.3.5"></a>
+## 0.3.5 (2023-06-22)
+
+### Fixed
+
+- 🐛 fix: correção na conexão com o redis [[9cc3047](https://github.com/ks-labs/adonis-bull/commit/9cc3047ad4a8e1db10b51379f6cedbb5d115f551)]
+
+
 <a name="0.3.4"></a>
 ## 0.3.4 (2023-06-22)
 
