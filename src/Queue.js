@@ -21,7 +21,7 @@ class Queue {
 
     const { connection, ...connections } = Config.get('bull')
 
-    this.config = { redis: connections[connection] }
+    this.config = connections[connection]
 
     this.connections = connections
   }

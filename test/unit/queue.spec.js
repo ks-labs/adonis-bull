@@ -46,18 +46,22 @@ test.group('Bull', (group) => {
       config.set('bull', {
         connection: 'bull',
         local: {
-          host: '127.0.0.1',
-          port: 6379,
-          db: 0,
-          password: 'redis',
-          keyPrefix: '',
+          redis: {
+            host: '127.0.0.1',
+            port: 6379,
+            db: 0,
+            password: 'redis',
+            keyPrefix: '',
+          },
         },
         bull: {
-          host: '127.0.0.1',
-          port: 6379,
-          db: 0,
-          password: 'redis',
-          keyPrefix: 'q',
+          redis: {
+            host: '127.0.0.1',
+            port: 6379,
+            db: 0,
+            password: 'redis',
+            keyPrefix: 'q',
+          },
         },
       })
 
