@@ -1,5 +1,14 @@
 # Changelog
 
+<a name="0.3.4"></a>
+## 0.3.4 (2023-06-22)
+
+### Fixed
+
+- 🐛 fix: correção na inicialização do bull board [[805c488](https://github.com/ks-labs/adonis-bull/commit/805c488b2ed8e5dbf7a81c3b088a54dc0741c467)]
+- 💚 ci: correção script de publicação de pacote [[35c4fc6](https://github.com/ks-labs/adonis-bull/commit/35c4fc67691945756680467f1c9eb806516f6ff6)]
+
+
 <a name="0.3.3"></a>
 ## 0.3.3 (2023-06-22)
 
