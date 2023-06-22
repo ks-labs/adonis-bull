@@ -1,6 +1,6 @@
 {
-  "name": "@rocketseat/adonis-bull",
-  "version": "0.3.0",
+  "name": "@ks-labs/adonis-bull",
+  "version": "0.3.1",
   "main": "src/Queue.js",
   "license": "MIT",
   "scripts": {
@@ -67,13 +67,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rocketseat/adonis-bull.git"
+    "url": "git+https://github.com/ks-labs/adonis-bull"
   },
   "dependencies": {
-    "bull": "^3.22.1",
-    "bull-board": "^1.5.1",
+    "bull": "4.10.4",
+    "bull-board": "2.0.3",
+    "bullmq": "^4.0.0",
     "date-fns": "^2.7.0",
-    "human-interval": "^0.1.6"
+    "human-interval": "^0.1.6",
+    "ioredis": "^5.3.2"
   },
   "resolutions": {
     "**/**/minimist": "^1.2.3",

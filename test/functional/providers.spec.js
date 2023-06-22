@@ -29,12 +29,14 @@ test.group('Provider', (group) => {
           host: '127.0.0.1',
           port: 6379,
           db: 0,
+          password: 'redis',
           keyPrefix: '',
         },
         bull: {
           host: '127.0.0.1',
           port: 6379,
           db: 0,
+          password: 'redis',
           keyPrefix: 'q',
         },
       })

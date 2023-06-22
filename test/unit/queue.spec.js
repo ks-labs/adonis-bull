@@ -3,6 +3,14 @@ const delay = require('delay')
 const { ioc, registrar, resolver } = require('@adonisjs/fold')
 const { setupResolver, Helpers, Config } = require('@adonisjs/sink')
 const path = require('path')
+const Redis = require('ioredis')
+const redis = new Redis({
+  port: 6379, // Redis port
+  host: '127.0.0.1', // Redis host
+  username: '', // needs Redis >= 6
+  password: 'redis',
+  db: 0, // Defaults to 0
+})
 
 const Queue = require('../../src/Queue')
 
@@ -23,18 +31,34 @@ test.group('Bull', (group) => {
           host: '127.0.0.1',
           port: 6379,
           db: 0,
-          keyPrefix: '',
+          password: 'redis',
+          keyPrefix: 'q',
         },
         bull: {
           host: '127.0.0.1',
           port: 6379,
           db: 0,
+          password: 'redis',
           keyPrefix: 'q',
         },
       })
 
       config.set('bull', {
         connection: 'bull',
+        local: {
+          host: '127.0.0.1',
+          port: 6379,
+          db: 0,
+          password: 'redis',
+          keyPrefix: '',
+        },
+        bull: {
+          host: '127.0.0.1',
+          port: 6379,
+          db: 0,
+          password: 'redis',
+          keyPrefix: 'q',
+        },
       })
 
       return config
@@ -44,7 +68,17 @@ test.group('Bull', (group) => {
     setupResolver()
   })
 
-  group.beforeEach(() => {
+  group.beforeEach(async () => {
+    await redis.keys('q:**').then(function (keys) {
+      // Use pipeline instead of sending
+      // one command each time to improve the
+      // performance.
+      const pipeline = redis.pipeline()
+      keys.forEach(function (key) {
+        pipeline.del(key)
+      })
+      return pipeline.exec()
+    })
     ioc.restore()
   })
 
@@ -65,17 +99,19 @@ test.group('Bull', (group) => {
 
     const bull = new Queue(
       console,
-      ioc.use('Config'),
+      ioc.use('Adonis/Src/Config'),
       ['Test/Bull'],
       ioc,
       resolver
     )
+
     const Job = ioc.use('Test/Bull')
     const data = { test: 'data' }
 
     const queue = bull.get(Job.key)
 
     const job = await bull.add(Job.key, data)
+
     assert.equal(Job.key, job.queue.name)
     assert.deepEqual(data, job.data)
 
@@ -105,6 +141,7 @@ test.group('Bull', (group) => {
       ioc,
       resolver
     )
+
     const Job = ioc.use('Test/Bull')
     const data = { test: 'data' }
 

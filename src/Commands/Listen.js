@@ -25,7 +25,10 @@ class Listen extends Command {
     return 'Start the Bull listener'
   }
 
-  async handle(args, { board = false, boardHostname = 'localhost', boardPort = 9999 }) {
+  async handle(
+    args,
+    { board = false, boardHostname = 'localhost', boardPort = 9999 }
+  ) {
     this.Bull.process()
     if (board) {
       this.Bull.ui(boardPort, boardHostname)
