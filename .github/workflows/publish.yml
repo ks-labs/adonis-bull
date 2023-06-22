@@ -6,20 +6,10 @@ name: Node.js Package
 on:
   release:
     types: [created]
-  push:
-    branches: [master]
+  workflow_run:
+    workflows: ["Publish new release on production branch"]
 
 jobs:
-  run-test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - run: npm i
-      - run: npm test
-
   publish-gpr:
     needs: run-test
     runs-on: ubuntu-latest
