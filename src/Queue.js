@@ -117,9 +117,7 @@ class Queue {
 
   ui(port = 9999, hostname = 'localhost') {
     const board = BullBoard.createBullBoard(
-      Object.keys(this.queues).map(
-        (key) => new BullMQAdapter(this.getByKey(key).bull)
-      )
+      Object.values(this.queues).map((queue) => new BullMQAdapter(queue.bull))
     )
 
     const server = board.router.listen(port, hostname, () => {
