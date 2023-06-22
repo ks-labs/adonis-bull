@@ -3,7 +3,7 @@ const path = require('path')
 
 class BullProvider extends ServiceProvider {
   register() {
-    this.app.singleton('Rocketseat/Bull', (app) => {
+    this.app.singleton('Ks-labs/Bull', (app) => {
       const Queue = require('../src/Queue')
       const Helpers = app.use('Adonis/Src/Helpers')
       const Logger = app.use('Adonis/Src/Logger')
@@ -14,7 +14,7 @@ class BullProvider extends ServiceProvider {
       return new Queue(Logger, Config, jobs, app, resolver)
     })
 
-    this.app.alias('Rocketseat/Bull', 'Bull')
+    this.app.alias('Ks-labs/Bull', 'Bull')
   }
 }
 

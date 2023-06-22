@@ -4,7 +4,7 @@ const { Command } = require('@adonisjs/ace')
 
 class Listen extends Command {
   static get inject() {
-    return ['Rocketseat/Bull']
+    return ['Ks-labs/Bull']
   }
 
   constructor(Bull) {
