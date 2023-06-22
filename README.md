@@ -10,8 +10,6 @@
 
 <div>
 
-[![build-image]][build-url] [![coveralls-image]][coveralls-url] [![license-image]][license-url] [![npm-image]][npm-url]
-
 </div>
 
 <br />
@@ -269,10 +267,10 @@ We expect you to follow our [Code of Conduct](/.github/CODE_OF_CONDUCT.md). You 
 MIT License © [Rocketseat](https://github.com/Rocketseat)
 
 [npm-image]: https://img.shields.io/npm/v/@rocketseat/adonis-bull?color=8257E5&style=for-the-badge
-[npm-url]: https://www.npmjs.com/package/@rocketseat/adonis-bull 'npm'
+[npm-url]: https://github.com/ks-labs/adonis-bull 'npm'
 [license-url]: LICENSE.md
 [license-image]: https://img.shields.io/github/license/adonisjs/adonis-framework?color=8257E5&style=for-the-badge
-[build-url]: https://github.com/Rocketseat/adonis-bull/actions
-[build-image]: https://img.shields.io/github/workflow/status/Rocketseat/adonis-bull/Node.js/master?color=8257E5&style=for-the-badge
-[coveralls-image]: https://img.shields.io/coveralls/github/Rocketseat/adonis-bull/master?color=8257E5&style=for-the-badge
-[coveralls-url]: https://coveralls.io/github/Rocketseat/adonis-bull?branch=master
+[build-url]: hhttps://github.com/ks-labs/adonis-bull/actions
+[build-image]: https://img.shields.io/github/workflow/status/ks-labs/adonis-bull/Node.js/master?color=8257E5&style=for-the-badge
+[coveralls-image]: https://img.shields.io/coveralls/github/ks-labs/adonis-bull/master?color=8257E5&style=for-the-badge
+[coveralls-url]: https://coveralls.io/github/ks-labs/adonis-bull?branch=master

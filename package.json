@@ -116,8 +116,7 @@
     "human-interval": "^0.1.6"
   },
   "engines": {
-    "node": ">=12.0.0",
-    "yarn": "WE NOT SUPORT - Due github packages incompatibilty Please use npm"
+    "node": ">=12.0.0"
   },
   "resolutions": {
     "**/**/minimist": "^1.2.3",
