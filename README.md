@@ -14,7 +14,7 @@
 
 <br />
 
-> **This documentation refers to the stable version of Adonis Bull, for Adonis v4.x** <br /> > **If you are using Adonis v5, [click here](https://github.com/Rocketseat/adonis-bull/tree/alpha).**
+> **This documentation refers to the stable version of Adonis Bull, for Adonis v4.x** <br /> > **If you are using Adonis v5, [click here](https://github.com/ks-labs/adonis-bull/tree/alpha).**
 
 ## Why
 
@@ -23,7 +23,7 @@ Using Bull with Adonis shouldn't be hard. It shouldn't require dozens of steps t
 ## Install
 
 ```sh
-adonis install @rocketseat/adonis-bull
+adonis install @ks-labs/adonis-bull
 ```
 
 ## Usage
@@ -31,7 +31,7 @@ adonis install @rocketseat/adonis-bull
 Register the Bull commands at `start/app.js`
 
 ```js
-const aceProviders = ['@rocketseat/adonis-bull/providers/Command']
+const aceProviders = ['@ks-labs/adonis-bull/providers/Command']
 ```
 
 Register the Bull provider at `start/app.js`
@@ -39,7 +39,7 @@ Register the Bull provider at `start/app.js`
 ```js
 const providers = [
   //...
-  '@rocketseat/adonis-bull/providers/Bull',
+  '@ks-labs/adonis-bull/providers/Bull',
 ]
 ```
 
@@ -77,7 +77,7 @@ In the above file you can define redis connections, there you can pass all `Bull
 Create a file to initiate `Bull` at `preloads/bull.js`:
 
 ```js
-const Bull = use('Rocketseat/Bull')
+const Bull = use('ks-labs/Bull')
 
 Bull.process()
   // Optionally you can start BullBoard:
@@ -164,7 +164,7 @@ You can share the `job` of any `controller`, `hook` or any other place you might
 
 ```js
 const User = use('App/Models/User')
-const Bull = use('Rocketseat/Bull')
+const Bull = use('ks-labs/Bull')
 const Job = use('App/Jobs/UserRegisterEmail')
 
 class UserController {
@@ -187,7 +187,7 @@ Sometimes it is necessary to schedule a job instead of shooting it imediately. Y
 
 ```js
 const User = use('App/Models/User')
-const Bull = use('Rocketseat/Bull')
+const Bull = use('ks-labs/Bull')
 const Job = use('App/Jobs/HolidayOnSaleEmail')
 
 class HolidayOnSaleController {
@@ -264,9 +264,9 @@ We expect you to follow our [Code of Conduct](/.github/CODE_OF_CONDUCT.md). You 
 
 ## License
 
-MIT License © [Rocketseat](https://github.com/Rocketseat)
+MIT License © [ks-labs](https://github.com/ks-labs)
 
-[npm-image]: https://img.shields.io/npm/v/@rocketseat/adonis-bull?color=8257E5&style=for-the-badge
+[npm-image]: https://img.shields.io/npm/v/@ks-labs/adonis-bull?color=8257E5&style=for-the-badge
 [npm-url]: https://github.com/ks-labs/adonis-bull 'npm'
 [license-url]: LICENSE.md
 [license-image]: https://img.shields.io/github/license/adonisjs/adonis-framework?color=8257E5&style=for-the-badge
