@@ -2,6 +2,7 @@
 
 const Bull = require('bull')
 const BullBoard = require('bull-board')
+const { BullMQAdapter } = require('bull-board/bullMQAdapter')
 const humanInterval = require('human-interval')
 
 const differenceInMilliseconds = require('date-fns/differenceInMilliseconds')
@@ -20,7 +21,8 @@ class Queue {
 
     const { connection, ...connections } = Config.get('bull')
 
-    this.config = connections[connection]
+    this.config = { redis: connections[connection] }
+
     this.connections = connections
   }
 
@@ -43,10 +45,10 @@ class Queue {
         const Job = this.app.use(path)
 
         let config = this.config
+
         if (Job.connection) {
           config = this.connections[Job.connection]
         }
-
         queues[Job.key] = {
           bull: new Bull(Job.key, config),
           Job,
@@ -114,13 +116,13 @@ class Queue {
   }
 
   ui(port = 9999, hostname = 'localhost') {
-    BullBoard.setQueues(
-      Object.values(this.queues).map(
-        (queue) => new BullBoard.BullAdapter(queue.bull)
+    const board = BullBoard.createBullBoard(
+      Object.keys(this.queues).map(
+        (key) => new BullMQAdapter(this.getByKey(key).bull)
       )
     )
 
-    const server = BullBoard.router.listen(port, hostname, () => {
+    const server = board.router.listen(port, hostname, () => {
       this.Logger.info(`bull board on http://${hostname}:${port}`)
     })
 
