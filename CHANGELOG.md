@@ -1,5 +1,24 @@
 # Changelog
 
+<a name="0.3.3"></a>
+## 0.3.3 (2023-06-22)
+
+### Changed
+
+- 🚚 chore: alterado nomenclatura do container Rocketseat para Ks-labs [[eeec6c9](https://github.com/ks-labs/adonis-bull/commit/eeec6c9b864caa4190b1991e841ffe3bf4339079)]
+
+### Fixed
+
+- 💚 ci: correção script de publicação de pacote [[cb98885](https://github.com/ks-labs/adonis-bull/commit/cb98885a967b807c0d1b5cea1f10163b8f9d698e)]
+- 💚 ci: criado script para publicação do pacote [[f12fd66](https://github.com/ks-labs/adonis-bull/commit/f12fd66bccb092ed75b491b4f83718e0c7677537)]
+- 💚 ci: alterar a versão utilizada no teste [[80b73e8](https://github.com/ks-labs/adonis-bull/commit/80b73e8ec9f8c7a0439e9f5115bee6e0eb985cd8)]
+
+### Miscellaneous
+
+- 📝 docs: atualização doc [[a342fb1](https://github.com/ks-labs/adonis-bull/commit/a342fb1ed586002f1e8f671d45075182a6c92c94)]
+- 📝 docs: atualização doc [[570c582](https://github.com/ks-labs/adonis-bull/commit/570c582a5f27c1718514c5e7de49cb44ae8ea5af)]
+
+
 <a name="0.3.2"></a>
 ## 0.3.2 (2023-06-22)
 
