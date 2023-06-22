@@ -7,7 +7,15 @@
     "test": "node japaFile.js",
     "coverage": "nyc --reporter=lcov --reporter=text-summary npm run test",
     "lint": "eslint --ignore-path .gitignore",
-    "format": "prettier \"**/*.js\" --write --ignore-path .gitignore"
+    "format": "prettier \"**/*.js\" --write --ignore-path .gitignore",
+    "commit": "npm run cm",
+    "cm": "cz",
+    "cma": "git add . && cz",
+    "ri": "npx release-it --patch",
+    "release": "npx release-it --patch",
+    "release:patch": "npx release-it patch",
+    "release:minor": "npx release-it minor",
+    "release:major": "npx release-it major"
   },
   "nyc": {
     "exclude": [
@@ -15,24 +23,50 @@
       "bin"
     ]
   },
+  "config": {
+    "commitizen": {
+      "path": "cz-customizable"
+    }
+  },
+  "favolosoEmoji": {
+    "showEmojiPerCommit": true
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/ksgl",
+    "access": "public"
+  },
+  "release-it": {
+    "git": {
+      "tagName": "v${version}",
+      "commitMessage": "🔖 chore(release): ${version}",
+      "pushArgs": [
+        "--follow-tags",
+        "--force"
+      ]
+    },
+    "github": {
+      "release": true
+    },
+    "npm": {
+      "publish": false
+    },
+    "increment": "conventional:@favoloso/emoji",
+    "scripts": {
+      "changelog": "./node_modules/.bin/conventional-changelog -p @favoloso/emoji | tail -n +3",
+      "beforeStage": "./node_modules/.bin/conventional-changelog -p @favoloso/emoji -i CHANGELOG.md -s"
+    },
+    "plugins": {},
+    "hooks": {
+      "after:bump": "npx gitmoji-changelog"
+    }
+  },
   "directories": {
     "test": "test"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "lint-staged": {
     "*.js": [
       "yarn lint --fix",
       "yarn format"
-    ]
-  },
-  "commitlint": {
-    "extends": [
-      "@rocketseat/commitlint-config"
     ]
   },
   "keywords": [
@@ -44,12 +78,11 @@
     "adonis-bull",
     "adonis-queue"
   ],
+
   "devDependencies": {
     "@adonisjs/ace": "^5.0.8",
     "@adonisjs/fold": "^4.0.9",
     "@adonisjs/sink": "^1.0.17",
-    "@commitlint/cli": "^11.0.0",
-    "@rocketseat/commitlint-config": "^0.0.2",
     "delay": "^4.3.0",
     "eslint": "^7.18.0",
     "eslint-config-prettier": "^7.2.0",
@@ -59,11 +92,19 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "husky": "^4.3.8",
     "japa": "^3.0.1",
     "lint-staged": "^10.5.3",
     "nyc": "^14.1.1",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "ioredis": "^5.3.2",
+    "@commitlint/cli": "^16.3.0",
+    "@favoloso/conventional-changelog-emoji": "^0.10.0",
+    "@release-it/bumper": "^4.0.0",
+    "commitizen": "^4.2.4",
+    "commitlint-config-gitmoji": "^2.2.10",
+    "cz-customizable": "^6.3.0",
+    "husky": "^7.0.0",
+    "release-it": "^15.3.0"
   },
   "repository": {
     "type": "git",
@@ -72,10 +113,12 @@
   "dependencies": {
     "bull": "4.10.4",
     "bull-board": "2.0.3",
-    "bullmq": "^4.0.0",
     "date-fns": "^2.7.0",
-    "human-interval": "^0.1.6",
-    "ioredis": "^5.3.2"
+    "human-interval": "^0.1.6"
+  },
+  "engines": {
+    "node": ">=12.0.0",
+    "yarn": "WE NOT SUPORT - Due github packages incompatibilty Please use npm"
   },
   "resolutions": {
     "**/**/minimist": "^1.2.3",
