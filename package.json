@@ -1,5 +1,5 @@
 {
-  "name": "@ks-labs/adonis-bull",
+  "name": "@ksgl/adonis-bull",
   "version": "0.3.5",
   "main": "src/Queue.js",
   "license": "MIT",
@@ -11,8 +11,8 @@
     "commit": "npm run cm",
     "cm": "cz",
     "cma": "git add . && cz",
-    "ri": "npx release-it --patch",
-    "release": "npx release-it --patch",
+    "ri": "npx release-it ",
+    "release": "npx release-it ",
     "release:patch": "npx release-it patch",
     "release:minor": "npx release-it minor",
     "release:major": "npx release-it major"
@@ -32,7 +32,6 @@
     "showEmojiPerCommit": true
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/ksgl",
     "access": "public"
   },
   "release-it": {

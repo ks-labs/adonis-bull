@@ -23,7 +23,7 @@ Using Bull with Adonis shouldn't be hard. It shouldn't require dozens of steps t
 ## Install
 
 ```sh
-adonis install @ks-labs/adonis-bull
+adonis install @ksgl/adonis-bull
 ```
 
 ## Usage
@@ -31,7 +31,7 @@ adonis install @ks-labs/adonis-bull
 Register the Bull commands at `start/app.js`
 
 ```js
-const aceProviders = ['@ks-labs/adonis-bull/providers/Command']
+const aceProviders = ['@ksgl/adonis-bull/providers/Command']
 ```
 
 Register the Bull provider at `start/app.js`
@@ -39,7 +39,7 @@ Register the Bull provider at `start/app.js`
 ```js
 const providers = [
   //...
-  '@ks-labs/adonis-bull/providers/Bull',
+  '@ksgl/adonis-bull/providers/Bull',
 ]
 ```
 
@@ -266,7 +266,7 @@ We expect you to follow our [Code of Conduct](/.github/CODE_OF_CONDUCT.md). You 
 
 MIT License © [ks-labs](https://github.com/ks-labs)
 
-[npm-image]: https://img.shields.io/npm/v/@ks-labs/adonis-bull?color=8257E5&style=for-the-badge
+[npm-image]: https://img.shields.io/npm/v/@ksgl/adonis-bull?color=8257E5&style=for-the-badge
 [npm-url]: https://github.com/ks-labs/adonis-bull 'npm'
 [license-url]: LICENSE.md
 [license-image]: https://img.shields.io/github/license/adonisjs/adonis-framework?color=8257E5&style=for-the-badge
